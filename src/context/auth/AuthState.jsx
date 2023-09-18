@@ -69,8 +69,8 @@ const AuthState = (props) => {
                     dispatch({
                         type: REGISTER_FAIL,
                         payload:
-                            err.response.data.err.msg ||
-                            err.response.data.err[0].msg,
+                            err.response?.data?.err?.msg ||
+                            err.response?.data?.err[0].msg,
                     });
                 } else {
                     dispatch({
@@ -98,7 +98,7 @@ const AuthState = (props) => {
                 });
             })
             .catch((err) => {
-                if (err.response.data.err) {
+                if (err.response?.data?.err) {
                     dispatch({
                         type: LOGIN_FAIL,
                         payload:
